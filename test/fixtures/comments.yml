@@ -1,0 +1,32 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+1:
+  c_title: MyString1
+  c_orner: MyString1
+  c_body: Mytext1
+  theme_id: 1
+
+2:
+  c_title: MyString2
+  c_orner: MyString2
+  c_body: MyText2
+  theme_id: 2
+
+3:
+  c_title: MyString3
+  c_orner: MyString3
+  c_body: MyText3
+  theme_id: 1
+
+4:
+  c_title: MyString4
+  c_orner: MyString4
+  c_body: Myext4
+  theme_id: 2
+
+5:
+  c_title: MyString5
+  c_orner: MyString5
+  c_body: MyText5
+  theme_id: 1
+

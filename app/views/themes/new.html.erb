@@ -1,0 +1,24 @@
+<h1>Create New Theme</h1>
+
+<% if @theme.errors.any? %>
+  <div>
+    <h2><%= pluralize(@theme.errors.count, "error") %> prohibited this Theme from being saved:</h2>
+    <ul>
+      <% @theme.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= form_for (@theme) do |f| %>
+  <table>
+    <tr><td>Your Name : </td><td><%= f.text_field :orner, { size: 30 } %></td></tr>
+    <tr><td>Theme Title : </td><td><%= f.text_field :title , { size: 30 } %></td></tr>
+    <tr><td>Description : </td><td><%= f.text_area :body , { cols: 50, rows: 5 } %></td></tr>
+    <tr><td></td><td><%= f.submit %></td></tr>
+  </table>
+<% end %>
+
+

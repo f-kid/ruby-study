@@ -1,0 +1,25 @@
+<h2>Theme List</h2>
+<hr />
+<%= link_to "Create New Theme", action: "new" %><br /><br />
+
+<table>
+
+  <tr>
+    <th>id</th>
+    <th>Theme</th>
+    <th>orner</th>
+    <th>date</th>
+  </tr>
+
+  <% @themes.each do |t| %>
+    <tr>
+      <td><%= t.id %></td>
+      <td><%= link_to "#{t.title}", {action: "show", id: "#{t.id}"} %></td>
+      <td><%= t.orner %></td>
+      <td><%= t.created_at.to_s(:long) %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
