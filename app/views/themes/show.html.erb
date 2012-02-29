@@ -1,5 +1,5 @@
 <h2>Theme : <%= @theme.title %></h2>
-created at <%= @theme.created_at.to_s(:long) %> --  by <%= @theme.orner %>
+created at <%= @theme.created_at.to_s(:long) %> --  by <font color="blue"><%= @theme.orner %></font>
 <hr />
 Description : <%= @theme.body %><br /><br />
 [<%= link_to "Add Comment", new_theme_comment_path(params[:id]) %>]<br />
@@ -8,9 +8,10 @@ Description : <%= @theme.body %><br /><br />
 <%= @num %><br /><br /><br />
 
 <% @comments.each do |comment| %>
- <table>
-  <tr bgcolor="#ccc"><td>[<%= comment.id %>] POSTED : <%= comment.created_at %> | BY : <%= comment.c_orner %></td></tr>
-  <tr bgcolor="#eee"><td><%= comment.c_body %></td></tr>
+  <table width="800">
+    <tr bgcolor="#ccc"><td>[<%= comment.id %>] <b><%= comment.c_title %></b> posted by <font color="blue"><%= comment.c_orner %></font>  /  <%= comment.created_at %></td></tr>
+    <tr bgcolor="#eee"><td><%= comment.c_body %></td></tr>
   </table>
+  <br />
 <% end %>
 

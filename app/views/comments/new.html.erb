@@ -15,17 +15,52 @@
   </div>
 <% end %>
 
-<%
-=end
-%>
-
-<%= form_for(@comment, :url=>theme_comments_path(@comment.theme_id)) do |f| %>
-<% # form_for (@comment, {:action => "create"}) do |f| %>
+<!-- <% form_for (@comment) , url: {action: 'create'} do |f| %> -->
+<%= form_for(@comment)  do |f| %>
   <table>
     <tr><td>Your Name : </td><td><%= f.text_field :c_orner, { size: 30 } %></td></tr>
     <tr><td>Subject : </td><td><%= f.text_field :c_title , { size: 30 } %></td></tr>
     <tr><td>Cooment : </td><td><%= f.text_area :c_body , { cols: 50, rows: 5 } %></td></tr>
+    <%= f.hidden_field :theme_id, :value => "#{@comment.theme_id}" %>
+<!--     <%= hidden_field_tag(:parent_id, "5") %>   -->
+
+<tr><td></td><td><%= f.submit %></td></tr>
+  </table>
+<% end %>
+
+<% # form_for (@comment, {:action => "create"}) do |f| %>
+<%= form_for(@comment), {action: :create} do |f| %>
+<%= form_for(@comment):url => {:action => 'create'} do |f| %>
+<% #hidden_field_tag(:theme_id , @comment.theme_id) %>
+
+
+<%= form_for(@comment, :url=>theme_comments_path(@comment.theme_id)) do |f| %>
+  <table>
+    <tr><td>Your Name : </td><td><%= f.text_field :c_orner, { size: 30 } %></td></tr>
+    <tr><td>Subject : </td><td><%= f.text_field :c_title , { size: 30 } %></td></tr>
+    <tr><td>Cooment : </td><td><%= f.text_area :c_body , { cols: 50, rows: 5 } %></td></tr>
+    <%= f.hidden_field :theme_id, {:value =>  @theme_id} %>
     <tr><td></td><td><%= f.submit %></td></tr>
   </table>
 <% end %>
+<%
+=end
+%>
+
+<%= form_for(@comment, :url=>theme_comments_path) do |f| %>
+  <table>
+    <tr><td>Your Name : </td><td><%= f.text_field :c_orner, { size: 30 } %></td></tr>
+    <tr><td>Subject : </td><td><%= f.text_field :c_title , { size: 30 } %></td></tr>
+    <tr><td>Cooment : </td><td><%= f.text_area :c_body , { cols: 50, rows: 5 } %></td></tr>
+    <%= f.hidden_field :theme_id, {:value => params[:theme_id]} %>
+    <tr><td></td><td><%= f.submit %></td></tr>
+  </table>
+<% end %>
+
+
+
+
+
+
+
 

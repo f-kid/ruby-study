@@ -1,6 +1,11 @@
 class CommentsController < ApplicationController
   def index
-    @comments = Comment.all
+    @theme_title = Theme.find(params[:theme_id])
+    puts 99999999999999999999999999999999999999
+    puts params
+    puts 99999999999999999999999999999999999999
+
+#    @comments = Comment.all
   end
   
   def show
@@ -14,15 +19,39 @@ class CommentsController < ApplicationController
 
 #    @comments = Comment.find_by_theme_id(params[:id])
 
+
   end
 
   def new
     @comment = Comment.new
+    @theme_id = params[:id] #this is invalid
+#    p params
+#    @id = params[:theme_id]
+#    puts 22222222222222222222222222
+#    puts @theme_id
+#    puts @comment
+#    puts 
+#    puts 22222222222222222222222222
   end
 
   def create
     @comment = Comment.new(params[:comment])
- 
+    puts 1111111111111111111111111111111111111111
+    puts params
+    puts params[:comment]
+    puts @comment
+    puts @comment.id
+    puts 1111111111111111111111111111111111111111
+    puts @comment.theme_id
+
+    @comment.save
+
+
+#format.html { redirect_to(:action => 'show', :id => params[:theme_id])}
+
+
+#    redirect_to :url => "/themes/#{params[:theme_id]}/"
+
 #    respond_to do |format|
 #      if @comment.update_attributes(params[:comment])
 #        format.html { redirect_to "www.google.com", notice: 'Theme was successfully updated.' }
@@ -39,7 +68,6 @@ class CommentsController < ApplicationController
 #      redirect_to controller: :comments, action: :new
 #    end
 
-   @comment.save
 #   redirect_to theme_path(@comment.theme.id)
 #   redirect_to "http://www.google.com"
 
