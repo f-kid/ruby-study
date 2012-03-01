@@ -36,16 +36,26 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(params[:comment])
-    puts 1111111111111111111111111111111111111111
-    puts params
-    puts params[:comment]
-    puts @comment
-    puts @comment.id
-    puts 1111111111111111111111111111111111111111
-    puts @comment.theme_id
+    logger.debug "------------------debug start---------------------"
+    logger.debug "params ="
+    logger.debug params
+
+    logger.debug "params[:comment]="
+    logger.debug params[:comment]
+
+    logger.debug "@comment="
+    logger.debug @comment
+
+    logger.debug "@comment.id="
+    logger.debug @comment.id
+   
+    logger.debug "comment.theme_id="    
+    logger.debug @comment.theme_id
+
+    logger.debug "------------------debug end---------------------"
 
     @comment.save
-
+    redirect_to :controller => 'themes', :action => 'show', :id => params[:theme_id]
 
 #format.html { redirect_to(:action => 'show', :id => params[:theme_id])}
 
